@@ -11,6 +11,7 @@ urlpatterns = [
     path('patient/<int:patient_id>/add-report/', views.add_report, name='add_report'),
     path('upload-report/', views.report_upload, name='report_upload'),
     path('reports/<str:name>/', views.reports_by_patient, name='reports_by_patient'),
+    path('iv-dashboard/', views.iv_dashboard, name='iv_dashboard'),
 ]
 
   

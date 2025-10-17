@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
-from .models import Report, Patient
+from .models import Report, Patient, IVBag
 from .forms import ReportForm
+from .iv_module import get_iv_level
 
 
 
@@ -74,3 +75,11 @@ def report_upload(request):
 def reports_by_patient(request, name):
     reports = Report.objects.filter(patient_name__iexact=name)
     return render(request, 'accounts/patient_reports.html', {'name': name, 'reports': reports})
+
+def iv_dashboard(request):
+    for iv in IVBag.objects.all():
+        if iv.level > 0:
+            iv.level -= random.randint(5, 15)
+            iv.save()
+    iv_bags = IVBag.objects.select_related('patient').all()
+    return render(request, 'iv/dashboard.html', {'iv_bags': iv_bags})    
