@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ patient.name }} - Reports</title>
+</head>
+<body>
+    <h2>All Reports for {{ patient.name }}</h2>
+
+    {% if reports %}
+        <ul>
+            {% for report in reports %}
+                <li>
+                    <strong>{{ report.title }}</strong> - {{ report.description }}<br>
+                    {% if report.image %}
+                        <img src="{{ report.image.url }}" width="200"><br>
+                    {% endif %}
+                    Uploaded at: {{ report.uploaded_at }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No reports found for this patient.</p>
+    {% endif %}
+</body>
+</html>

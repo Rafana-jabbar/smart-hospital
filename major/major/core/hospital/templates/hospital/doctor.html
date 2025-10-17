@@ -1,0 +1,15 @@
+{% extends 'hospital/base.html' %}
+
+{% block title %}Doctor Portal{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mt-5">Doctor Portal</h1>
+    <ul class="list-group mt-4">
+        {% for doctor in doctors %}
+            <li class="list-group-item">{{ doctor.name }} - {{ doctor.specialty }}</li>
+        {% endfor %}
+    </ul>
+    <div class="text-center mt-4">
+        <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Report</title>
+</head>
+<body>
+    <h2>Upload Report</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+
+    <h3>Uploaded Reports</h3>
+    <ul>
+        {% for report in reports %}
+            <li>
+                <strong>{{ report.title }}</strong> - {{ report.description }}<br>
+                {% if report.image %}
+                    <img src="{{ report.image.url }}" width="200">
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
