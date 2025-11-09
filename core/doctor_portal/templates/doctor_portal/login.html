@@ -1,0 +1,32 @@
+{% extends 'hospital/base.html' %}
+
+{% block title %}Doctor Login{% endblock %}
+
+{% block content %}
+  <div class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h4 class="mb-3">Doctor Portal - Login</h4>
+            {% if error %}
+              <div class="alert alert-danger">{{ error }}</div>
+            {% endif %}
+            <form method="post">{% csrf_token %}
+              <div class="mb-3">
+                <label class="form-label">Doctor ID</label>
+                <input class="form-control" type="number" name="doctor_id" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input class="form-control" type="text" name="name" required />
+              </div>
+              <button class="btn btn-primary w-100">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+

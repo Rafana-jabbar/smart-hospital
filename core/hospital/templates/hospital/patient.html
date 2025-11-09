@@ -1,0 +1,23 @@
+{% extends 'hospital/base.html' %}
+
+{% block title %}Patient Dashboard{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Patient Portal</h1>
+    <div class="card p-4 shadow">
+      <h3>Patient Details</h3>
+      <p><b>Name:</b> {{ patient.name }}</p>
+      <p><b>Age:</b> {{ patient.age }}</p>
+      <p><b>Medical History:</b> {{ patient.history }}</p>
+      <p><b>Current Diagnosis:</b> {{ patient.diagnosis }}</p>
+      <p><b>Treatment Plan:</b> {{ patient.treatment }}</p>
+    </div>
+    <div class="mt-4">
+      <h3>Actions</h3>
+      <button class="btn btn-primary">Request Appointment</button>
+      <button class="btn btn-success">View Medication Schedule</button>
+      <button class="btn btn-warning">Contact Doctor</button>
+    </div>
+  </div>
+{% endblock %}

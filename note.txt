@@ -1,0 +1,2 @@
+-clear db once patient is done
+-next task:Add new indo gender contact bed no to the patient display
